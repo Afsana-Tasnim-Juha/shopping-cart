@@ -9,6 +9,7 @@ const addProduct = () => {
 
     console.log(product, quantity);
     displayProduct(product, quantity);
+    saveProductToLocalStorage();
 }
 
 const displayProduct = (product, quantity) => {
@@ -16,4 +17,16 @@ const displayProduct = (product, quantity) => {
     const li = document.createElement('li');
     li.innerText = `${product} : ${quantity}`
     ul.appendChild(li);
+}
+
+const getStoredShoppingCart = () => {
+    let cart = {};
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        cart = JSON.parse(storedCart);
+    }
+    return cart;
+}
+const saveProductToLocalStorage = (product, quantity) => {
+
 }
